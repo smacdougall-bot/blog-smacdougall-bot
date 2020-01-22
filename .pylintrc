@@ -1,0 +1,21 @@
+[MASTER]
+load-plugins=pylint_django
+
+[FORMAT]
+max-line-length=79
+
+[MESSAGES CONTROL]
+disable=
+    abstract-method,
+    fixme,
+    invalid-name,
+    line-too-long,   # pycodestyle enforces this already
+    missing-docstring,
+    no-member,  # Django .objects, etc.
+    no-self-use,
+    redefined-outer-name,  # pytest fixtures
+    too-few-public-methods,  # dataclasses & models
+
+[DESIGN]
+max-parents=13
+min-similarity-lines=25
