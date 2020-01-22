@@ -1,3 +1,3 @@
 # Procfile
 
-web: gunicorn blog-smacdougall-bot.wsgi
+web: gunicorn blog_smacdougall_bot.wsgi
