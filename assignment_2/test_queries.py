@@ -1,3 +1,7 @@
+# pylint: disable=W0612
+# pylint: disable=E1111
+
+
 import string
 
 from model_mommy import mommy
