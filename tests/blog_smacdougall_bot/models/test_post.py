@@ -1,8 +1,8 @@
-import pytest
 import datetime as dt
+import pytest
 from model_mommy import mommy
-from blog.models import Post
 from freezegun import freeze_time
+from blog.models import Post
 
 
 

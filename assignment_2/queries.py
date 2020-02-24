@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from django.db.models import Sum, Q, Count
+from django.db.models import Q, Count
 from django.apps import apps
 from blog.models import Comment, Post
 
@@ -104,7 +104,7 @@ def question_10_set_approved_to_false(comment):
     """
     comment.approved = False
     comment.save()
-    return 
+    return comment
 
 
 
