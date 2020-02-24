@@ -114,4 +114,3 @@ def question_11_delete_post_and_all_related_comments(post):
     """
     Comment.objects.filter(post=post).delete()
     post.delete()
-    return
