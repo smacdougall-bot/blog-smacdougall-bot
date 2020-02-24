@@ -7,3 +7,5 @@ install:
 script:
   - pytest -v
   - find . -name '*.py' | xargs pylint
+services:
+  - postgresql
