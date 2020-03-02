@@ -18,6 +18,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index),  # Add our index view to the URL patterns
     path('admin/', admin.site.urls),
+    path('', views.home, name='home'), # set root to home view
 ]

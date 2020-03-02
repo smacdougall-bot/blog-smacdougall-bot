@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{% static "blog/base.css" %}">
+  <title>Steve's Blog - {% block page_title %}An awesome blog{% endblock %}</title>
+</head>
+
+<body>
+  <!-- The header -->
+  <header id="site-header">
+    <h1>Steve's Blog</h1>
+    <p>A blog about awesomeness</p>
+  </header>
+
+<!-- Top navigation -->
+<nav id="top-nav">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Posts</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<body>
+  <main>
+    {% block main %}
+    <!-- Content for the main block will be rendered here -->
+    {% endblock %}
+  </main>
+
+<!-- The footer-->
+<footer id="site-footer">
+  <!-- Print the copyright with the current year -->
+  Copyright &copy;{% now 'Y' %}
+</footer>
+</body>
+</html>
