@@ -65,6 +65,9 @@ a:hover {
 #main-content {
   margin-top: 1rem;
   margin-bottom: 2rem;
+  display: grid;
+  /* the grid has two columns. 1 with auto width, the other is 200px wide */
+  grid-template-columns: auto 200px;
 }
 
 /* Style the footer */

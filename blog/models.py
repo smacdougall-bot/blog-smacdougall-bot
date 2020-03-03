@@ -8,6 +8,9 @@ class PostQuerySet(models.QuerySet):
     def published(self):
         return self.filter(status=self.model.PUBLISHED)
 
+    def get_topics(self):
+        return Topic.objects.all()
+
 class CommentQuerySet(models.QuerySet):
     def approved(self):
         return self.exclude(approved=False)

@@ -1,7 +1,14 @@
 {% extends "blog/base.html" %}
 
 {% block main %}
-<p>Welcome to the homepage of my blog!</p>
 
-{{ latest_posts }}
+<section class="latest-article-preview">
+
+<p>Welcome to the homepage of my blog!</p>
+{% for post in latest_posts %}
+  <h3>{{ post.title }}</h3>
+  <em>{{ post.published|timesince }} ago</em>
+  {{ post.content|linebreaks }}
+{% endfor %}
+</section>
 {% endblock %}
