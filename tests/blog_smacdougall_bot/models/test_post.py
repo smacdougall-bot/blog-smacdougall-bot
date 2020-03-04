@@ -3,6 +3,8 @@ import pytest
 from model_mommy import mommy
 from freezegun import freeze_time
 from blog.models import Post
+from blog.models import Topic
+
 
 
 
@@ -39,3 +41,10 @@ def test_publish_sets_published_to_current_datetime():
 
     # Set the timezone to UTC (to match tz_offset=0)
     assert post.published == dt.datetime(2030, 6, 1, 12, tzinfo=dt.timezone.utc)
+
+def test_get_topics_returns_topic_name_and_total_posts():
+    topic = Topic.objects.create(name='Kittens', slug='kittens')
+    post = mommy.make('blog.Post', status=Post.PUBLISHED)
+    post.topics.add(topic)
+
+    assert list(Post.objects.get_topics()) == [{'name': topic.name, 'total_posts': 1}]

@@ -7,7 +7,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   grid-template-rows: auto auto 1fr auto;  /* Sticky footer */
   margin: 0 auto;  /* Centers the page */
-  max-width: 1000px;  /* Set max width */
+  max-width: 1100px;  /* Set max width */
   min-height: 100%;  /* Full height */
   padding: 1rem;
 }
@@ -64,9 +64,8 @@ a:hover {
 /* Style the main content */
 #main-content {
   margin-top: 1rem;
-  margin-bottom: 2rem;
   display: grid;
-  /* the grid has two columns. 1 with auto width, the other is 200px wide */
+  /* The grid has 2 columns. 1 with auto width, the other is 200px wide */
   grid-template-columns: auto 200px;
 }
 

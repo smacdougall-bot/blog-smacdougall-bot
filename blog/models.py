@@ -1,7 +1,7 @@
 from django.conf import settings  # Imports Django's loaded settings
 from django.db import models
 from django.utils import timezone
-
+from django.db.models import Count
 
 # Create your models here.
 class PostQuerySet(models.QuerySet):
@@ -9,7 +9,8 @@ class PostQuerySet(models.QuerySet):
         return self.filter(status=self.model.PUBLISHED)
 
     def get_topics(self):
-        return Topic.objects.all()
+        topics_count = Topic.objects.annotate(total_posts=Count('blog_posts'))
+        return topics_count.order_by('-total_posts').values('name', 'total_posts')
 
 class CommentQuerySet(models.QuerySet):
     def approved(self):

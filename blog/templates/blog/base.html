@@ -26,19 +26,19 @@
 </nav>
 
 <body>
-  <main>
+  <main id="main-content">
     <div>
       {% block main %}
       <!-- Content for the main block will be rendered here -->
       {% endblock %}
-    </div}
-    
+    </div>
+
    <aside id="sidebar">
      <section_id=<"topic-list">
       <h3>Topics</h3>
       <ul>
         {% for topic in topics %}
-          <li>{{ topic }}</li>
+          <li>{{ topic.name }}({{ topic.total_posts }})</li>
         {% endfor %}
       </ul>
      </section>
