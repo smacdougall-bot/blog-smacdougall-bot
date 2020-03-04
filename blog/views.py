@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from . import models
 from django.http import HttpResponse
+from . import models
+
 
 def index(request):
     return HttpResponse('Hello world!')

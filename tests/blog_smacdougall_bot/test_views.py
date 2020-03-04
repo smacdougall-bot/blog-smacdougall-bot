@@ -1,5 +1,7 @@
 # test_views.py
+import pytest
 
+pytestmark = pytest.mark.django_db
 
 def test_index_ok(client):
     # Make a GET request to / and store the response object
