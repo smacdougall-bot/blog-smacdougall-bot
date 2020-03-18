@@ -2,6 +2,8 @@ from django.conf import settings  # Imports Django's loaded settings
 from django.db import models
 from django.utils import timezone
 from django.db.models import Count
+from django.contrib.auth import get_user_model
+from django.urls import reverse
 
 # Create your models here.
 class PostQuerySet(models.QuerySet):
@@ -10,7 +12,12 @@ class PostQuerySet(models.QuerySet):
 
     def get_topics(self):
         topics_count = Topic.objects.annotate(total_posts=Count('blog_posts'))
-        return topics_count.order_by('-total_posts').values('name', 'total_posts')
+        return topics_count.values('name', 'total_posts')
+
+    def get_authors(self):
+        User = get_user_model()
+        # Get the users who are authors of this queryset
+        return User.objects.filter(blog_posts__in=self).distinct()
 
 class CommentQuerySet(models.QuerySet):
     def approved(self):
@@ -27,11 +34,6 @@ class Topic(models.Model):
 
     def __str__(self):
         return self.name
-
-    class Meta:
-        ordering = ['name']
-
-
 
 class Comment(models.Model):
     post = models.ForeignKey(
@@ -115,6 +117,19 @@ class Post(models.Model):
         """Publishes this post"""
         self.status = self.PUBLISHED
         self.published = timezone.now() # The current datetime with timezone
+
+    def get_absolute_url(self):
+        if self.published:
+            kwargs = {
+                'year': self.published.year,
+                'month': self.published.month,
+                'day': self.published.day,
+                'slug': self.slug
+            }
+        else:
+            kwargs = {'pk': self.pk}
+
+        return reverse('post-detail', kwargs=kwargs)
 
     class Meta:
         # Sort by the `created` field. The `-` prefix

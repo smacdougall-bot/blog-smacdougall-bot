@@ -7,7 +7,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   grid-template-rows: auto auto 1fr auto;  /* Sticky footer */
   margin: 0 auto;  /* Centers the page */
-  max-width: 1100px;  /* Set max width */
+  max-width: 1000px;  /* Set max width */
   min-height: 100%;  /* Full height */
   padding: 1rem;
 }
@@ -72,4 +72,44 @@ a:hover {
 /* Style the footer */
 #site-footer {
   font-size: 0.9rem;
+}
+
+
+/* Post preview */
+.post-preview {
+  border-bottom: 1px #eee solid;
+}
+.post-preview h2 {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.post-preview time {
+  color: #999;
+}
+
+.post-preview section {
+  margin: 1rem 0;
+}
+
+
+/* Post detail article */
+#post-detail-article h1 {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+#post-detail-article .author {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #555;
+}
+
+#post-detail-article .published {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+#post-detail-article .content {
+  margin: 2rem 0;
 }

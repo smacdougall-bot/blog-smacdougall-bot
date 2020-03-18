@@ -1,0 +1,14 @@
+{% extends "blog/base.html" %}
+
+{% block page_title %}Topics{% endblock %}
+
+{% block main %}
+
+
+<h1>Topics</h1>
+{% for topic in topics_name_sort %}
+  <article class="topic-list">
+    <h3>{{ topic.name }}</h3>
+  </article>
+{% endfor %}
+{% endblock %}
